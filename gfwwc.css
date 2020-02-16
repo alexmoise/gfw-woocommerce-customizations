@@ -1,9 +1,60 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.1
+ * Version 0.3
  * (version above is equal with main plugin file version when this file was updated)
  */
- 
+
+/* Woocommerce! */
+.woocommerce div.product form.cart .quantity {
+    display: block;
+    width: 100%;
+    margin: 10px 0 !important;
+}
+.woocommerce div.product form.cart .quantity input.qty {
+    width: 100%;
+    text-align: left;
+}
+.woocommerce div.product form.cart button.button {
+    width: 100%;
+    padding: 20px !important;
+}
+.woocommerce div.product form.cart .variations td {
+    vertical-align: baseline;
+}
+.woocommerce ul.products li.product a.button {
+    width: 100%;
+    text-align: center;
+    padding: 18px;
+}
+.woocommerce-checkout #payment ul.payment_methods li {
+    list-style: none;
+}
+.post-type-archive-product ul.products h2.woocommerce-loop-product__title {
+    min-height: 54px;
+}
+ul.products > li.product a.woocommerce-LoopProduct-link {
+    text-align: center;
+}
+ul.products > li.product a.woocommerce-LoopProduct-link span.price {
+    font-size: 16px;
+}
+.woocommerce form .form-row textarea {
+    height: 18em;
+}
+.woocommerce-additional-fields textarea#order_comments {
+    height: 14em;
+}
+h3#ship-to-different-address > label > span {
+    display: inline-block;
+}
+h3#ship-to-different-address > label > input#ship-to-different-address-checkbox {
+    width: initial;
+}
+.woocommerce .cart_item .quantity .qty {
+	width: 7em;
+    text-align: right;
+}
+/* Woocommerce END */
  
  
  
