@@ -1,6 +1,6 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.3
+ * Version 0.9
  * (version above is equal with main plugin file version when this file was updated)
  */
 
@@ -53,6 +53,11 @@ h3#ship-to-different-address > label > input#ship-to-different-address-checkbox 
 .woocommerce .cart_item .quantity .qty {
 	width: 7em;
     text-align: right;
+}
+.woocommerce ul#shipping_method li input {
+    display: inline-block;
+    width: 16px;
+    margin-top: 5px;
 }
 /* Woocommerce END */
  
