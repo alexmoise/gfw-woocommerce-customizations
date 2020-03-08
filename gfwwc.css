@@ -1,22 +1,26 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.9
+ * Version 0.10
  * (version above is equal with main plugin file version when this file was updated)
  */
 
 /* Woocommerce! */
 .woocommerce div.product form.cart .quantity {
-    display: block;
-    width: 100%;
-    margin: 10px 0 !important;
+    display: inline-block;
+    width: 15%;
+    margin: 0 !important;
+    float: right !important;
 }
 .woocommerce div.product form.cart .quantity input.qty {
     width: 100%;
     text-align: left;
+    padding: 16px 8px;
+    font-size: 18px;
 }
 .woocommerce div.product form.cart button.button {
-    width: 100%;
+    width: calc(85% - 20px);
     padding: 20px !important;
+    margin-right: 20px;
 }
 .woocommerce div.product form.cart .variations td {
     vertical-align: baseline;
@@ -59,6 +63,24 @@ h3#ship-to-different-address > label > input#ship-to-different-address-checkbox 
     width: 16px;
     margin-top: 5px;
 }
+/* Purple of Green -> Dark Gray */
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+    background-color: #414141;
+}
+.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
+    background-color: #515151;
+}
+.woocommerce-Price-amount {
+    color: #545454;
+}
+.woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover {
+    background-color: #767676;
+}
+/* END Purple of Green -> Dark Gray */
+.woocommerce-loop-category__title mark.count {
+    background: none;
+}
+
 /* Woocommerce END */
  
  
