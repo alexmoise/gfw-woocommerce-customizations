@@ -1,6 +1,6 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.11
+ * Version 0.12
  * (version above is equal with main plugin file version when this file was updated)
  */
 
@@ -63,7 +63,7 @@ h3#ship-to-different-address > label > input#ship-to-different-address-checkbox 
     width: 16px;
     margin-top: 5px;
 }
-/* Purple of Green -> Dark Gray */
+/* Purple or Green -> Dark Gray */
 .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
     background-color: #414141;
 }
@@ -76,12 +76,50 @@ h3#ship-to-different-address > label > input#ship-to-different-address-checkbox 
 .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover {
     background-color: #767676;
 }
-/* END Purple of Green -> Dark Gray */
+/* END Purple or Green -> Dark Gray */
 .woocommerce-loop-category__title mark.count {
     background: none;
 }
 .woocommerce-checkout input, .woocommerce-checkout select, .woocommerce-checkout textarea,.woocommerce-cart input, .woocommerce-cart select, .woocommerce-cart textarea, .woocommerce-account input, .woocommerce-account select, .woocommerce-account textarea {
     text-transform: none;
+}
+.woocommerce .woocommerce-error .button, .woocommerce .woocommerce-info .button, .woocommerce .woocommerce-message .button, .woocommerce-page .woocommerce-error .button, .woocommerce-page .woocommerce-info .button, .woocommerce-page .woocommerce-message .button {
+    padding: 20px;
+    background-color: #414141;
+    color: white;
+}
+.woocommerce-message {
+    line-height: 54px;
+}
+.woocommerce-cart-form button.button, .woocommerce-checkout button.button {
+    padding: 20px !important;
+    background-color: #414141 !important;
+    color: white !important;
+}
+.woocommerce-cart-form input#coupon_code, .woocommerce-checkout input#coupon_code {
+    padding: 18px 10px;
+    min-width: 160px;
+    font-size: 16px;
+}
+@media (max-width:425px) {
+    .woocommerce-cart-form input#coupon_code {
+        min-width: 100%;
+        margin-bottom:10px;
+    }
+	.woocommerce-checkout input#coupon_code {
+        width: 100% !important;
+        margin-bottom:10px;
+    }
+	.woocommerce-cart-form  button.button, .woocommerce-checkout  button.button {
+		min-width: 100%;
+	}
+	.checkout_coupon .form-row, form.checkout .form-row {
+		display: block;
+		min-width: 100%;
+	}
+}
+.woocommerce ul.woocommerce-error {
+	margin-left: 0;
 }
 /* Woocommerce END */
  
