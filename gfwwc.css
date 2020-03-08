@@ -1,6 +1,6 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.10
+ * Version 0.11
  * (version above is equal with main plugin file version when this file was updated)
  */
 
@@ -80,7 +80,9 @@ h3#ship-to-different-address > label > input#ship-to-different-address-checkbox 
 .woocommerce-loop-category__title mark.count {
     background: none;
 }
-
+.woocommerce-checkout input, .woocommerce-checkout select, .woocommerce-checkout textarea,.woocommerce-cart input, .woocommerce-cart select, .woocommerce-cart textarea, .woocommerce-account input, .woocommerce-account select, .woocommerce-account textarea {
+    text-transform: none;
+}
 /* Woocommerce END */
  
  
