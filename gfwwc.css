@@ -1,6 +1,6 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.15
+ * Version 0.16
  * (version above is equal with main plugin file version when this file was updated)
  */
 
@@ -23,6 +23,16 @@
 	width: calc(85% - 26px);
     padding: 20px !important;
     margin-right: 14px;
+}
+@media(max-width:545px) {
+    .woocommerce div.product form.cart .quantity {
+        width: 100%;
+        margin: 5px 0 !important;
+    }
+    .woocommerce div.product form.cart button.button {
+        width: 100% !important;
+        margin: 5px 0;
+    }
 }
 .woocommerce div.product form.cart .variations td {
     vertical-align: baseline;
