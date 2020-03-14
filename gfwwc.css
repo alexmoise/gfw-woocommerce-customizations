@@ -1,6 +1,6 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.16
+ * Version 0.17
  * (version above is equal with main plugin file version when this file was updated)
  */
 
@@ -171,7 +171,107 @@ div.quantity input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 /* The Quantity box END */ 
- 
+
+/* The Shipping in the Cart and Checkout*/
+.shipping-options-row:before {
+    display: none;
+}
+.woocommerce-cart .order-total > td, 
+.woocommerce-cart .cart-subtotal > td {
+    text-align: right !important;
+}
+.cart_totals .cart-subtotal th, 
+.cart_totals .order-total th, 
+.cart-subtotal > th, 
+.order-total > th, 
+form.checkout .product-name {
+    text-transform: none;
+}
+
+td.shipping-options-row {
+    padding: 9px 0 !important;
+	background: none !important;
+}
+.gfw_shipping_calculator {
+    padding: 0px 12px;
+}
+.gfw_shipping_destination {
+    padding: 0px 12px;
+	margin: 5px 0;
+}
+.gfw_shipping_methods_title {
+    padding: 10px 12px;
+}
+.gfw_shipping_methods ul#shipping_method li {
+    border-top: 1px solid rgba(0,0,0,.1);
+    margin: 0;
+	padding: 9px;
+}
+.gfw_shipping_title {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+}
+.gfw_shipping_destination .woocommerce-shipping-destination {
+    display: block;
+    text-align: left;
+	font-style: italic;
+	font-weight: normal;
+    margin-bottom: 10px;
+}
+.gfw_shipping_methods {
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.gfw_shipping_calculator form.woocommerce-shipping-calculator a.shipping-calculator-button {
+    display: block;
+    width: 100%;
+    margin: 0;
+    text-align: right;
+}
+.gfw_shipping_calculator .woocommerce-shipping-calculator {
+    margin-top: -24px;
+}
+
+.gfw_shipping_method_list_element label {
+	display: inline-block !important;
+	text-align: left;
+	font-weight: normal;
+}
+@media(min-width:1024px) {
+	.gfw_shipping_method_cost {
+		display: inline-block;
+		float: right;
+	}
+	.gfw_shipping_method_list_element label {
+		width: calc(100% - 125px);
+	}
+}
+@media(max-width:1023px) {
+    .gfw_shipping_method_cost {
+        display: block;
+        width: fit-content;
+        float: none;
+        margin: 0 0 0 auto;
+    }
+    .gfw_shipping_method_list_element label {
+        width: calc(100% - 25px);
+    }
+}
+
+@media(max-width: 768px){
+	.gfw_shipping_title:after {
+		content: ':';
+	}
+}
+
+/* Checkout mostly from here on */
+form.woocommerce-checkout td.product-total, 
+form.woocommerce-checkout th.product-total, 
+form.woocommerce-checkout tr.cart-subtotal > td, 
+form.woocommerce-checkout tr.order-total > td {
+    text-align: right;
+}
+
  
  
  
