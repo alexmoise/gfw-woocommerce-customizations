@@ -1,6 +1,6 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.17
+ * Version 0.18
  * (version above is equal with main plugin file version when this file was updated)
  */
 
@@ -142,6 +142,18 @@ h3#ship-to-different-address > label > input#ship-to-different-address-checkbox 
 }
 /* Woocommerce END */
 
+/* Product accordions */
+.single-product #accordion-container .accordion-content > h2 {
+    display:none;
+}
+.single-product #accordion-container .accordion-content > table {
+    margin:0;
+}
+.single-product #accordion-container {
+    margin-bottom:40px;
+}
+/* Product accordions END */
+
 /* The Quantity box */
 div.quantity .minus, div.quantity .plus{
 	display: inline-block;
@@ -186,6 +198,10 @@ div.quantity input::-webkit-inner-spin-button {
 .order-total > th, 
 form.checkout .product-name {
     text-transform: none;
+}
+
+.xoo-wsc-footer-b a {
+    font-weight: bold;
 }
 
 td.shipping-options-row {

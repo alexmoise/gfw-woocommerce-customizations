@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * GitHub Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * Description: A custom plugin to add required customizations to Girlfridayweddings Woocommerce shop and to style the front end as required. For details/troubleshooting please contact me at <a href="https://moise.pro/contact/">https://moise.pro/contact/</a>
- * Version: 0.17
+ * Version: 0.18
  * Author: Alex Moise
  * Author URI: https://moise.pro
  */
@@ -51,6 +51,8 @@ function mogfw_nosidebars_inshop() {
 add_action( 'init', 'mogfw_layout_adjustments' );
 function mogfw_layout_adjustments() {
 	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 15 );	
 }
 
 // === Email confirmation field functions
