@@ -1,6 +1,6 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.18
+ * Version 0.20
  * (version above is equal with main plugin file version when this file was updated)
  */
 
@@ -139,6 +139,41 @@ h3#ship-to-different-address > label > input#ship-to-different-address-checkbox 
 }
 .woocommerce ul.woocommerce-error {
 	margin-left: 0;
+}
+span.select2.select2-container {
+    height: 46px;
+}
+/* Shipping drop down lists & co. */
+span.select2-selection {
+    padding: 8px 4px;
+    height: 46px !important;
+    border-radius: 0px !important;
+    border-color: #ddd !important;
+}
+.select2-container--open span.select2-selection {
+    border-color: #999999 !important;
+}
+span.select2-selection .select2-selection__rendered {
+    color: #929292 !important;
+}
+span.select2-selection span.select2-selection__arrow {
+    height: 44px !important;
+}
+form.woocommerce-shipping-calculator input[type=text] {
+    padding: 12px 10px;
+    font-size: 16px;
+    color: #929292;
+}
+form.woocommerce-shipping-calculator p.form-row {
+    margin-bottom: 5px;
+}
+form.woocommerce-shipping-calculator button[type=submit] {
+    padding: 20px !important;
+    background-color: #414141 !important;
+    color: white !important;
+}
+.woocommerce-cart .cart-collaterals .shipping-calculator-button::after {
+    vertical-align: text-bottom;
 }
 /* Woocommerce END */
 
