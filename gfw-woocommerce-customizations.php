@@ -4,12 +4,12 @@
  * Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * GitHub Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * Description: A custom plugin to add required customizations to Girlfridayweddings Woocommerce shop and to style the front end as required. For details/troubleshooting please contact me at <a href="https://moise.pro/contact/">https://moise.pro/contact/</a>
- * Version: 0.21
+ * Version: 0.22
  * Author: Alex Moise
  * Author URI: https://moise.pro
  */
 
-if ( ! defined( 'ABSPATH' ) ) {	exit(0);}
+if ( ! defined( 'ABSPATH' ) ) {	exit(0); }
 
 // Redirect shop-related URLs to home if "!is_user_logged_in()"
 // We'll disable this later, when shop will go live
@@ -54,6 +54,24 @@ function mogfw_layout_adjustments() {
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 15 );
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+}
+// Remove Additional Information tab from Single Products
+add_filter( 'woocommerce_product_tabs', 'mogfw_remove_product_tabs', 98);
+function mogfw_remove_product_tabs($tabs) {
+	unset($tabs['additional_information']);
+	return $tabs;
+}
+// Adding Additional Information data as a string to Single Product
+add_action( 'woocommerce_single_product_summary', 'mogfw_additional_information_string', 90);
+function mogfw_additional_information_string() {
+	global $product;
+	$units_weight = get_option('woocommerce_weight_unit');
+	$units_dimension = get_option('woocommerce_dimension_unit');
+	if( $product->get_dimensions() ) { $product_dimensions = ' Dimensions: '.$product->get_dimensions(); }
+	if( $product->get_weight() ) { $product_weight = ', Weight: '.$product->get_weight().' '.$units_weight; }
+	if( $product->get_sku() ) { $product_sku = ', SKU: '.$product->get_sku(); }
+	$additional_info_string = '<div class="additional_info_string">'.$product_dimensions.$product_weight.$product_sku.'</div>';
+	echo $additional_info_string;
 }
 
 // === Email confirmation field functions
