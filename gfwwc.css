@@ -1,6 +1,6 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.20
+ * Version 0.23
  * (version above is equal with main plugin file version when this file was updated)
  */
 
@@ -143,6 +143,10 @@ h3#ship-to-different-address > label > input#ship-to-different-address-checkbox 
 span.select2.select2-container {
     height: 46px;
 }
+.additional_info_string {
+    font-size: 12px;
+	color: #ccc;
+}
 /* Shipping drop down lists & co. */
 span.select2-selection {
     padding: 8px 4px;
@@ -234,11 +238,9 @@ div.quantity input::-webkit-inner-spin-button {
 form.checkout .product-name {
     text-transform: none;
 }
-
 .xoo-wsc-footer-b a {
     font-weight: bold;
 }
-
 td.shipping-options-row {
     padding: 9px 0 !important;
 	background: none !important;
