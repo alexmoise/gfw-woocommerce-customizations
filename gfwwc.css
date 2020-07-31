@@ -1,10 +1,17 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.23
+ * Version 0.24
  * (version above is equal with main plugin file version when this file was updated)
  */
 
 /* Woocommerce! */
+.single-product .product .up-sells.upsells.products {
+    clear: both;
+    padding-top: 20px;
+}
+.single-product .product .up-sells.upsells.products > h2 {
+    margin-bottom: 30px;
+}
 .woocommerce div.product form.cart .quantity {
     display: inline-block;
     width: calc(15% + 12px);
