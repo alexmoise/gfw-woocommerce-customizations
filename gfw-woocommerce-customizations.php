@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * GitHub Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * Description: A custom plugin to add required customizations to Girlfridayweddings Woocommerce shop and to style the front end as required. For details/troubleshooting please contact me at <a href="https://moise.pro/contact/">https://moise.pro/contact/</a>
- * Version: 0.24
+ * Version: 0.25
  * Author: Alex Moise
  * Author URI: https://moise.pro
  */
@@ -15,7 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {	exit(0); }
 // We'll disable this later, when shop will go live
 add_action( 'template_redirect', 'mogfw_keep_shop_private' );
 function mogfw_keep_shop_private() {
+	// Remove styles below when putting the shop live
 	add_action( 'wp_head', function() { echo '<style>body:not(.logged-in) .xoo-wsc-modal { display: none; }</style>'; } );	// this hides the floating cart added with Woo Side Cart plugin
+	add_action( 'wp_head', function() { echo '<style>body:not(.logged-in) .widget.widget_search { display: none !important; }</style>'; } );	// this hides the Search Widget
 	if (!is_user_logged_in()) {
 		if( strpos($_SERVER['REQUEST_URI'], '/shop') !== false || strpos($_SERVER['REQUEST_URI'], '/product') !== false || strpos($_SERVER['REQUEST_URI'], '/product-category') !== false || strpos($_SERVER['REQUEST_URI'], '/cart') !== false || strpos($_SERVER['REQUEST_URI'], '/checkout') !== false ) {
 			wp_redirect( '/');
