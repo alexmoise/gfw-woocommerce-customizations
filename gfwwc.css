@@ -1,9 +1,13 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.24
+ * Version 0.26
  * (version above is equal with main plugin file version when this file was updated)
  */
 
+/* Shop menu item */
+.bold_shop_menu_item {
+    font-weight: bold;
+}
 /* Woocommerce! */
 .single-product .product .up-sells.upsells.products {
     clear: both;
