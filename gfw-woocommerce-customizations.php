@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * GitHub Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * Description: A custom plugin to add required customizations to Girlfridayweddings Woocommerce shop and to style the front end as required. For details/troubleshooting please contact me at <a href="https://moise.pro/contact/">https://moise.pro/contact/</a>
- * Version: 0.26
+ * Version: 0.27
  * Author: Alex Moise
  * Author URI: https://moise.pro
  */
@@ -19,7 +19,7 @@ function mogfw_keep_shop_private() {
 	add_action( 'wp_head', function() { echo '<style>body:not(.logged-in) .xoo-wsc-modal { display: none; }</style>'; } );	// this hides the floating cart added with Woo Side Cart plugin
 	add_action( 'wp_head', function() { echo '<style>body:not(.logged-in) .widget.widget_search { display: none !important; }</style>'; } );	// this hides the Search Widget
 	if (!is_user_logged_in()) {
-		if( strpos($_SERVER['REQUEST_URI'], '/shop') !== false || strpos($_SERVER['REQUEST_URI'], '/product') !== false || strpos($_SERVER['REQUEST_URI'], '/product-category') !== false || strpos($_SERVER['REQUEST_URI'], '/cart') !== false || strpos($_SERVER['REQUEST_URI'], '/checkout') !== false ) {
+		if( strpos($_SERVER['REQUEST_URI'], '/shop/') !== false || strpos($_SERVER['REQUEST_URI'], '/product') !== false || strpos($_SERVER['REQUEST_URI'], '/product-category') !== false || strpos($_SERVER['REQUEST_URI'], '/cart') !== false || strpos($_SERVER['REQUEST_URI'], '/checkout') !== false ) {
 			wp_redirect( '/');
 			exit;
 		}
@@ -45,7 +45,7 @@ function mogfw_adding_scripts() {
 // Adjust IF conditions later to match the requests
 add_action( 'get_header', 'mogfw_nosidebars_inshop' );
 function mogfw_nosidebars_inshop() {
-	if ( is_product() || is_shop() || is_product_category || is_cart || is_checkout || is_account_page() || is_wc_endpoint_url() ) {
+	if ( is_product() || is_shop() || is_product_category() || is_cart() || is_checkout() || is_account_page() || is_wc_endpoint_url() ) {
 		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 	}
 }
@@ -74,6 +74,13 @@ function mogfw_additional_information_string() {
 	if( $product->get_sku() ) { $product_sku = ', SKU: '.$product->get_sku(); }
 	$additional_info_string = '<div class="additional_info_string">'.$product_dimensions.$product_weight.$product_sku.'</div>';
 	echo $additional_info_string;
+}
+
+// === Product Filter at the top of the page (based on WOOF plugin)
+// add_action( 'woocommerce_before_shop_loop', 'mogfw_add_woof_filter', 10 );
+function mogfw_add_woof_filter() {
+	echo do_shortcode('[woof]');
+	// echo "We'll have the products filter here. (02)"; 
 }
 
 // === Email confirmation field functions
