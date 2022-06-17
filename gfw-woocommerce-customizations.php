@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * GitHub Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * Description: A custom plugin to add required customizations to Girlfridayweddings Woocommerce shop and to style the front end as required. For details/troubleshooting please contact me at <a href="https://moise.pro/contact/">https://moise.pro/contact/</a>
- * Version: 0.27
+ * Version: 0.28
  * Author: Alex Moise
  * Author URI: https://moise.pro
  */
@@ -12,8 +12,8 @@
 if ( ! defined( 'ABSPATH' ) ) {	exit(0); }
 
 // Redirect shop-related URLs to home if "!is_user_logged_in()"
-// We'll disable this later, when shop will go live
-add_action( 'template_redirect', 'mogfw_keep_shop_private' );
+// Not needed anymore as the shop is live already (maybe delete this function altogether?)
+// add_action( 'template_redirect', 'mogfw_keep_shop_private' );
 function mogfw_keep_shop_private() {
 	// Remove styles below when putting the shop live
 	add_action( 'wp_head', function() { echo '<style>body:not(.logged-in) .xoo-wsc-modal { display: none; }</style>'; } );	// this hides the floating cart added with Woo Side Cart plugin
