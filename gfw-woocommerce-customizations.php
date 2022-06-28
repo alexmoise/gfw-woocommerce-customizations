@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * GitHub Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * Description: A custom plugin to add required customizations to Girlfridayweddings Woocommerce shop and to style the front end as required. For details/troubleshooting please contact me at <a href="https://moise.pro/contact/">https://moise.pro/contact/</a>
- * Version: 0.28
+ * Version: 0.29
  * Author: Alex Moise
  * Author URI: https://moise.pro
  */
@@ -25,6 +25,12 @@ function mogfw_keep_shop_private() {
 		}
 	}
 }
+
+// Adding facebook domain verification in the header:
+add_action('wp_head', 'mogfw_insert_fb_domain_verification');
+function mogfw_insert_fb_domain_verification(){
+	echo '<meta name="facebook-domain-verification" content="9rnxwsepjwcgfj1edvx8ky4ydcun6t" />';
+};
 
 // Load our own CSS
 add_action( 'wp_enqueue_scripts', 'mogfw_adding_styles', 9999999 );
