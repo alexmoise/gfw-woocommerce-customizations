@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * GitHub Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * Description: A custom plugin to add required customizations to Girlfridayweddings Woocommerce shop and to style the front end as required. For details/troubleshooting please contact me at <a href="https://moise.pro/contact/">https://moise.pro/contact/</a>
- * Version: 0.29
+ * Version: 0.30
  * Author: Alex Moise
  * Author URI: https://moise.pro
  */
@@ -198,6 +198,16 @@ function mogfw_replace_woocommerce_templates( $template, $template_name, $templa
 	if ( ! $template && file_exists( $plugin_path . $template_name ) ) { $template = $plugin_path . $template_name; }
 	if ( ! $template ) { $template = $_template; }
 	return $template;
+}
+
+// Adding a "Continue shopping" button in Checkout page
+add_action('genesis_entry_header', 'mogfw_output_continue_shopping_button', 0);
+function mogfw_output_continue_shopping_button() {
+	if( strpos($_SERVER['REQUEST_URI'], '/checkout') !== false ) {
+		echo '
+			<button onclick="location.href=\'/shop/\';" class="button alt" name="woocommerce_checkout_continue_shopping" id="continue_shopping" value="continue_shopping" data-value="continue_shopping">Continue shopping</button>
+		';
+	}
 }
 
 ?>

@@ -1,6 +1,6 @@
 /** 
  * CSS Styles for GFW Woocommerce customizations plugin
- * Version 0.26
+ * Version 0.30
  * (version above is equal with main plugin file version when this file was updated)
  */
 
@@ -335,7 +335,13 @@ form.woocommerce-checkout tr.cart-subtotal > td,
 form.woocommerce-checkout tr.order-total > td {
     text-align: right;
 }
-
- 
- 
+/* The Continue Shopping button in Checkout */
+/* Also added in Customizer, 'cause the cache was too much to bear with it */
+body.woocommerce-checkout article.page {
+	padding-top: 10px;
+}
+body.woocommerce-checkout article.page button#continue_shopping {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
  
