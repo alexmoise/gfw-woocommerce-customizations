@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * GitHub Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * Description: A custom plugin to add required customizations to Girlfridayweddings Woocommerce shop and to style the front end as required. For details/troubleshooting please contact me at <a href="https://moise.pro/contact/">https://moise.pro/contact/</a>
- * Version: 0.30
+ * Version: 0.31
  * Author: Alex Moise
  * Author URI: https://moise.pro
  */
@@ -80,6 +80,20 @@ function mogfw_additional_information_string() {
 	if( $product->get_sku() ) { $product_sku = ', SKU: '.$product->get_sku(); }
 	$additional_info_string = '<div class="additional_info_string">'.$product_dimensions.$product_weight.$product_sku.'</div>';
 	echo $additional_info_string;
+}
+
+// === Add Shop in the breadcrumbs
+// NOTE: Assumes Genesis Connect for WooCommerce plugin is active
+add_filter( 'genesis_archive_crumb', 'mogfw_prepend_shop_link', 11, 2 );
+add_filter( 'genesis_single_crumb', 'mogfw_prepend_shop_link', 11, 2 );
+function mogfw_prepend_shop_link( $crumb, $args ) {
+	if ( is_singular( 'product' ) || is_tax( 'product_cat' ) || is_tax( 'product_tag' ) ) {
+		$shop_id    = wc_get_page_id( 'shop' );
+		$shop_title = get_the_title( $shop_id );
+		$prepend = gencwooc_get_crumb_link( get_permalink( $shop_id ), $shop_title, $shop_title, $args['sep'] );
+		$crumb = $prepend . $crumb;
+	}
+	return $crumb;
 }
 
 // === Product Filter at the top of the page (based on WOOF plugin)
