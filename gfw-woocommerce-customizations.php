@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * GitHub Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * Description: A custom plugin to add required customizations to Girlfridayweddings Woocommerce shop and to style the front end as required. For details/troubleshooting please contact me at <a href="https://moise.pro/contact/">https://moise.pro/contact/</a>
- * Version: 0.31
+ * Version: 0.32
  * Author: Alex Moise
  * Author URI: https://moise.pro
  */
@@ -222,6 +222,19 @@ function mogfw_output_continue_shopping_button() {
 			<button onclick="location.href=\'/shop/\';" class="button alt" name="woocommerce_checkout_continue_shopping" id="continue_shopping" value="continue_shopping" data-value="continue_shopping">Continue shopping</button>
 		';
 	}
+}
+
+// Translate/change some strings as needed and only where needed (in cat 113 atm)
+add_filter( 'gettext', 'mogfw_translate_woocommerce_strings', 999, 3 );
+function mogfw_translate_woocommerce_strings( $translated, $text, $domain ) {
+	global $post;
+	$terms = get_the_terms( $post->ID, 'product_cat' );
+	foreach ($terms as $term) {
+		if( $term->term_id == 113 ) { // "113" is the "Hire Shop" category
+			$translated = str_ireplace( 'Add to cart', 'Add to wishlist', $translated );
+		}
+	}
+	return $translated;
 }
 
 ?>
