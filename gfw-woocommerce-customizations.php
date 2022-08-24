@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * GitHub Plugin URI: https://github.com/alexmoise/gfw-woocommerce-customizations
  * Description: A custom plugin to add required customizations to Girlfridayweddings Woocommerce shop and to style the front end as required. For details/troubleshooting please contact me at <a href="https://moise.pro/contact/">https://moise.pro/contact/</a>
- * Version: 0.32
+ * Version: 0.33
  * Author: Alex Moise
  * Author URI: https://moise.pro
  */
@@ -59,9 +59,17 @@ function mogfw_nosidebars_inshop() {
 add_action( 'init', 'mogfw_layout_adjustments' );
 function mogfw_layout_adjustments() {
 	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 15 );
-	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+}
+// Remove Add To Cart button again, this time for HIRE SHOP and it's categories
+add_action('woocommerce_single_product_summary', 'mogfw_remove_product_description_add_cart_button', 1 );
+function mogfw_remove_product_description_add_cart_button() { 
+    $categories = array('163', '164', '165', '166', '113');
+    if ( has_term( $categories, 'product_cat', get_the_id() ) ) {
+        remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 15 );
+    }
 }
 // Remove Additional Information tab from Single Products
 add_filter( 'woocommerce_product_tabs', 'mogfw_remove_product_tabs', 98);
@@ -222,19 +230,6 @@ function mogfw_output_continue_shopping_button() {
 			<button onclick="location.href=\'/shop/\';" class="button alt" name="woocommerce_checkout_continue_shopping" id="continue_shopping" value="continue_shopping" data-value="continue_shopping">Continue shopping</button>
 		';
 	}
-}
-
-// Translate/change some strings as needed and only where needed (in cat 113 atm)
-add_filter( 'gettext', 'mogfw_translate_woocommerce_strings', 999, 3 );
-function mogfw_translate_woocommerce_strings( $translated, $text, $domain ) {
-	global $post;
-	$terms = get_the_terms( $post->ID, 'product_cat' );
-	foreach ($terms as $term) {
-		if( $term->term_id == 113 ) { // "113" is the "Hire Shop" category
-			$translated = str_ireplace( 'Add to cart', 'Add to wishlist', $translated );
-		}
-	}
-	return $translated;
 }
 
 ?>
